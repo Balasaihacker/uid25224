@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Grid Layout</title>
+  <style>
+    /* Layout */
+    .container {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .sidebar {
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 10px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      display: block;
+      padding: 8px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: #ddd;
+    }
+
+    /* Products grid */
+    .products .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Hide all categories by default */
+    .category {
+      display: none;
+    }
+
+    /* Show only the targeted category */
+    .category:target {
+      display: block;
+    }
+
+    /* Default view (electronics) */
+    .products .category:first-child {
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        display: flex;
+        justify-content: space-around;
+      }
+      .sidebar ul {
+        display: flex;
+        gap: 10px;
+      }
+      .sidebar li {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#electronics">Electronics</a></li>
+          <li><a href="#clothing">Clothing</a></li>
+          <li><a href="#home-appliances">Home Appliances</a></li>
+          <li><a href="#books">Books</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Products -->
+    <main class="products">
+      <section id="electronics" class="category">
+        <h2>Electronics</h2>
+        <div class="grid">
+          <div class="card">Laptop</div>
+          <div class="card">Smartphone</div>
+          <div class="card">Headphones</div>
+        </div>
+      </section>
+
+      <section id="clothing" class="category">
+        <h2>Clothing</h2>
+        <div class="grid">
+          <div class="card">T-Shirt</div>
+          <div class="card">Jeans</div>
+          <div class="card">Jacket</div>
+        </div>
+      </section>
+
+      <section id="home-appliances" class="category">
+        <h2>Home Appliances</h2>
+        <div class="grid">
+          <div class="card">Washing Machine</div>
+          <div class="card">Microwave</div>
+          <div class="card">Refrigerator</div>
+        </div>
+      </section>
+
+      <section id="books" class="category">
+        <h2>Books</h2>
+        <div class="grid">
+          <div class="card">Novel</div>
+          <div class="card">Comics</div>
+          <div class="card">Biography</div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
