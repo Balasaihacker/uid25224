@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Combined CSS Animations</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      overflow: hidden;
+    }
+
+
+    .moving-rotating-circle {
+      width: 80px;
+      height: 80px;
+      background-color: #2ecc71;
+      border-radius: 50%;
+      position: absolute;
+      top: 80%;
+      animation: moveRotate 3s linear infinite;
+    }
+
+
+    @keyframes moveRotate {
+      0% {
+        left: 0;
+        transform: rotate(0deg);
+      }
+      50% {
+        left: calc(100% - 80px);
+        transform: rotate(180deg);
+      }
+      100% {
+        left: 0;
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="moving-rotating-circle"></div>
+</body>
+</html>
